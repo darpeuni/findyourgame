@@ -106,12 +106,16 @@ h2 { margin-bottom: 20px; font-size: 24px; color: #333; }
 .form-group { margin-bottom: 15px; } 
 
 .form-group label { display: block; font-weight: bold; margin-bottom: 5px; } 
+.form-group2 label { font-weight: bold; margin-bottom: 5px; display: flex; width: 100%; } 
+/* 부모 컨테이너에 Flexbox 적용 */
+.form-group-container { display: flex; justify-content: space-between; gap: 20px; /* 요소 간 간격 */}
 
+/* 개별 form-group2 스타일 */
+.form-group { flex: 1; /* 동일한 너비로 설정 */}
 .form-group input[type="text"],
 .form-group input[type="number"],
 .form-group textarea,
 .form-group input[type="file"] { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; } 
-
 button[type="submit"] { background: #35424a; color: #fff; padding: 10px 20px; border: none; cursor: pointer; border-radius: 4px; font-size: 16px; } 
 
 button[type="submit"]:hover { background: #1e2a30; } 
