@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <title>회원가입</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 200px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        header {
+        margin-bottom: 200px !important; /* 메뉴 아래 여백 추가 */
+    }
+    </style>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="./images/favicon.png" rel="shortcut icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&amp;family=Titillium+Web:wght@200;300;400;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&amp;display=swap" rel="stylesheet" />
+    <link href="https://site-assets.fontawesome.com/releases/v6.5.0/css/all.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/font-nanum@1.0.0/nanumsquare.css" rel="stylesheet" />
+    <link href="./css/sell.css" rel="stylesheet" />
+    <link href="./css/slick.css" rel="stylesheet" />
+    <link href="./css/slick-theme.css" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet">
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/jquery.slicknav.js"></script>
+    <script src="./js/picMain.js"></script>
+    <script src="./js/slick.1.9.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+
+        WebFont.load({
+            google: {
+                families: ['Nanum Square:regular,bold']
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <!-- =================================
+                header 
+            ====================================-->
+        <header>
+            <div class="headerBar">
+                <div class="innerHeader">
+                    <!-- logo -->
+                    <h1 class="logo">
+                        <a href="index.html">
+                            <img src="./images/logo.png">
+                        </a>
+                    </h1>
+                    <!-- navigation -->
+                    <nav class="nav">
+                        <div class="inner">
+                            <ul class="nav-list" id="menu">
+                                <li class="in_menu01">
+                                    <a href="index.html">Main</a>
+                                </li>
+                                <li class="in_menu02">
+                                    <a href="sell.html">Sell</a>
+                                </li>
+                                <li class="in_menu03">
+                                    <a href="buy.html">Buy</a>
+                                </li>
+                                <li class="in_menu04">
+                                    <a href="login.html">My Account</a>
+                                    <ul class="submenu">
+                                        <li><a href="login.html">login</a></li>
+                                        <li><a href="register.html">회원가입</a></li>
+                                    </ul>
+                                </li>
+                                <li class="in_menu05">
+                                    <a href="support.html">Support</a>
+                                    <ul class="submenu">
+                                        <li><a href="faq.html">FAQ</a></li>
+                                        <li><a href="support.html">게시판</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- search button -->
+                    <ul class="searchLang">
+                        <li>
+                            <a href="#">
+                                <i class="fa-regular fa-magnifying-glass"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html">KO</a>
+                        </li>
+                        <li>
+                            <a href="#">EN</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- pc sub menu bg -->
+                <div class="smenu_bar"></div>
+            </div>
+        </header>
+    <div class="container">
+        <h2>회원가입</h2>
+        <form id="register-form">
+            <input type="text" id="username" placeholder="아이디" required>
+            <input type="password" id="password" placeholder="비밀번호" required>
+            <button type="submit">회원가입</button>
+        </form>
+        <p><a href="login.html">이미 계정이 있으신가요? 로그인</a></p>
+    </div>
+
+    <script>
+        document.getElementById("register-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (localStorage.getItem(username)) {
+                alert("이미 존재하는 아이디입니다.");
+            } else {
+                localStorage.setItem(username, JSON.stringify({ password }));
+                alert("회원가입이 완료되었습니다. 로그인 페이지로 이동해 주세요.");
+                window.location.href = "login.html";
+            }
+        });
+    </script>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <h4>사이트 맵</h4>
+                <ul>
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="buy.html">상품 목록</a></li>
+                    <li><a href="support.html">고객센터</a></li>
+                </ul>
+            </div>
+            <div class="footer-center">
+                <h4>중고거래 플랫폼</h4>
+                <p>© 2024 중고거래 플랫폼. All rights reserved.</p>
+                <p>문의: support@secondhand.com | 전화: 010-1234-5678</p>
+            </div>
+            <div class="footer-right">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><img alt="Instagram" src="images/insta.svg" /></a>
+                    <a href="#"><img alt="Twitter" src="images/twitter.svg" /></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

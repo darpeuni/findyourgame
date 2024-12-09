@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title> 중고거래 </title>
+    <!-- rel="preconnect" - html에게 특정 도메인에 연결하라는 HTML태그임 -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <!-- crossorigin : 스크립트를 익명으로 가져옴 
+            인증정보 전송하지 못하도록 차단하는 역할을 함  
+            보안상의 이유로 들어감      link, script, img, video, audio  -->
+    <!-- 페비콘 -->
+    <link href="./images/favicon.png" rel="shoutcut icon" />
+    <!-- rel="stylesheet":css 형식임을 나타냄 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter&amp;display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&amp;family=Titillium+Web:wght@200;300;400;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet" />
+    <!-- font-awesome 공식사이트 - https://fontawesome.com/ -->
+    <!-- rel="stylesheet":css 형식임을 나타냄 -->
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&amp;display=swap" rel="stylesheet" />
+    <link href="https://site-assets.fontawesome.com/releases/v6.5.0/css/all.css" rel="stylesheet" />
+    <!-- 나눔스퀘어 -->
+    <link href="https://cdn.jsdelivr.net/npm/font-nanum@1.0.0/nanumsquare.css" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <link href="./css/board.css" rel="stylesheet" />
+    <!-- slick.css => css import 로 부르면 나오지 않음 -->
+    <!-- slic -->
+    <link href="./css/slick.css" rel="stylesheet" />
+    <link href="./css/slick-theme.css" rel="stylesheet" />
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/jquery.slicknav.js"></script>
+    <script src="./js/picMain.js"></script>
+    <!-- news room slick -->
+    <script src="./js/slick.1.9.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        // ====== wow.js
+        new WOW().init();
+
+        // ====== 나눔스퀘어
+        WebFont.load({
+            google: {
+                families: ['Nanum Square:regular,bold']
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <header>
+            <div class="headerBar">
+                <div class="innerHeader">
+                    <!-- logo -->
+                    <h1 class="logo">
+                        <a href="index.html">
+                            <img src="./images/logo.png">
+                        </a>
+                    </h1>
+                    <!-- navigation -->
+                    <nav class="nav">
+                        <div class="inner">
+                            <ul class="nav-list" id="menu">
+                                <li class="in_menu01">
+                                    <a href="index.html">Main</a>
+                                </li>
+                                <li class="in_menu02">
+                                    <a href="sell.html">Sell</a>
+                                </li>
+                                <li class="in_menu03">
+                                    <a href="buy.html">Buy</a>
+                                </li>
+                                <li class="in_menu04">
+                                    <a href="login.html">My Account</a>
+                                    <ul class="submenu">
+                                        <li><a href="login.html">login</a></li>
+                                        <li><a href="register.html">회원가입</a></li>
+                                    </ul>
+                                </li>
+                                <li class="in_menu05">
+                                    <a href="support.html">Support</a>
+                                    <ul class="submenu">
+                                        <li><a href="faq.html">FAQ</a></li>
+                                        <li><a href="support.html">게시판</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- search button -->
+                    <ul class="searchLang">
+                        <li>
+                            <a href="#">
+                                <i class="fa-regular fa-magnifying-glass"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html">KO</a>
+                        </li>
+                        <li>
+                            <a href="#">EN</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- pc sub menu bg -->
+                <div class="smenu_bar"></div>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                <h1>중고거래 공지게시판</h1>
+
+                <div id="adminLogin" class="admin-login">
+                    <h2 style="font-size: 20xp;">관리자 로그인</h2>
+                    <input type="password" id="adminPassword" placeholder="관리자 비밀번호 입력 ex)1234">
+                    <button onclick="adminLogin()">로그인</button>
+                </div>
+
+                <div id="noticeFormSection" class="hidden">
+                    <h2 >공지사항 등록</h2>
+                    <form id="noticeForm">
+                        <div class="form-group">
+                            <label for="noticeTitle">제목:</label>
+                            <input type="text" id="noticeTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="noticeContent">내용:</label>
+                            <textarea id="noticeContent" rows="5" required></textarea>
+                        </div>
+                        <button type="button" onclick="addNotice()">공지 등록</button>
+                    </form>
+                </div>
+                <h2>공지사항 목록</h2>
+                <div id="noticeList">
+                    <div class="notice">
+                        <h3>🔔 안전한 거래를 위한 안내사항</h3>
+                        <p>직거래 시 안전한 장소에서 만나 거래하세요.<br>택배 거래 시 송장번호를 꼭 확인하고 안전거래를 이용하세요.<br>의심스러운 거래나 사기를 방지하기 위해 상대방의 연락처 및 정보를 확인하세요.</p>
+                    </div>
+                    <div class="notice">
+                        <h3>📢 중고거래 사이트 이용 안내</h3>
+                        <p>거래 완료된 상품은 빠르게 상태를 변경해 주세요.<br>부적절한 게시글이나 불법 거래는 사전 통보 없이 삭제될 수 있습니다.<br>원활한 거래를 위해 정확한 상품 정보와 사진을 등록해 주세요.</p>
+                    </div>
+                    <div class="notice">
+                        <h3>🎉 이벤트 소식</h3>
+                        <p>신규 회원 가입 시 10% 할인 쿠폰을 드립니다!<br>활발히 활동하는 회원에게는 매달 우수 회원 포상을 진행합니다.</p>
+                    </div>
+                    <div class="notice">
+                        <h3>🛠️ 도움이 필요하신가요?</h3>
+                        <p>궁금한 사항이나 불편한 점이 있다면 고객센터로 문의해 주세요.<br>📧 <strong>이메일</strong>: support@secondhand.com<br>📞 <strong>전화번호</strong>: 010-1234-5678 (평일 09:00~18:00)</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="footer-container">
+                <!-- Left Section -->
+                <div class="footer-left">
+                    <h4>사이트 맵</h4>
+                    <ul>
+                        <li><a href="index.html">홈</a></li>
+                        <li><a href="buy.html">상품 목록</a></li>
+                        <li><a href="support.html">고객센터</a></li>
+                    </ul>
+                </div>
+                <!-- Center Section -->
+                <div class="footer-center">
+                    <h4>중고거래 플랫폼</h4>
+                    <p>© 2024 중고거래 플랫폼. All rights reserved.</p>
+                    <p>문의: support@secondhand.com | 전화: 010-1234-5678</p>
+                </div>
+                <!-- Right Section -->
+                <div class="footer-right">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><img alt="Instagram" src="images/insta.svg" /></a>
+                        <a href="#"><img alt="Twitter" src="images/twitter.svg" /></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script>
+            const ADMIN_PASSWORD = "1234";
+
+            function adminLogin() {
+                const passwordInput = document.getElementById("adminPassword").value;
+                if (passwordInput === ADMIN_PASSWORD) {
+                    document.getElementById("adminLogin").classList.add("hidden");
+                    document.getElementById("noticeFormSection").classList.remove("hidden");
+                } else {
+                    alert("비밀번호가 틀렸습니다!");
+                }
+            }
+
+            function addNotice() {
+                const title = document.getElementById("noticeTitle").value;
+                const content = document.getElementById("noticeContent").value;
+                const noticeList = document.getElementById("noticeList");
+
+                if (title && content) {
+                    const notice = document.createElement("div");
+                    notice.classList.add("notice");
+                    notice.innerHTML = `
+                    <h3>${title}</h3>
+                    <p>${content}</p>
+                `;
+                    noticeList.appendChild(notice);
+                    document.getElementById("noticeForm").reset();
+                } else {
+                    alert("제목과 내용을 모두 입력해 주세요.");
+                }
+            }
+            
+        </script>
+    </div>
+</body>
+
+</html>

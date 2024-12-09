@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title> 중고거래 </title>
+    <link href="./css/faq_styles.css" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <style>
+        /* 전체 페이지 스타일 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #73ace0;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            text-align: center;
+            
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #000000;
+        }
+
+        /* 입력 필드 스타일 */
+        #authForm {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            display: block;
+            width: 80%;
+            max-width: 400px;
+            padding: 12px;
+            margin: 10px auto;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background-color: #fff;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #ff8c42;
+            outline: none;
+        }
+
+        /* 버튼 컨테이너 스타일 */
+        #buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* 버튼 스타일 */
+        button {
+            width: 45%;
+            max-width: 180px;
+            padding: 12px;
+            font-size: 16px;
+            background-color: #ff8c42;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff6f1e;
+        }
+
+        /* 로그아웃 버튼 스타일 */
+        #logoutBtn {
+            background-color: red;
+            width: 45%;
+            max-width: 180px;
+        }
+
+        #logoutBtn:hover {
+            background-color: #a00000;
+        }
+
+        /* 상태 메시지 스타일 */
+        #statusMessage {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #dcf500;
+            font-weight: bold;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            input[type="text"],
+            input[type="password"],
+            button {
+                width: 90%;
+            }
+        }
+    </style>
+    <!-- rel="preconnect" - html에게 특정 도메인에 연결하라는 HTML태그임 -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <!-- crossorigin : 스크립트를 익명으로 가져옴 
+            인증정보 전송하지 못하도록 차단하는 역할을 함  
+            보안상의 이유로 들어감      link, script, img, video, audio  -->
+    <!-- 페비콘 -->
+    <link href="./images/favicon.png" rel="shoutcut icon" />
+    <!-- rel="stylesheet":css 형식임을 나타냄 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter&amp;display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&amp;family=Titillium+Web:wght@200;300;400;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet" />
+    <!-- font-awesome 공식사이트 - https://fontawesome.com/ -->
+    <!-- rel="stylesheet":css 형식임을 나타냄 -->
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&amp;display=swap" rel="stylesheet" />
+    <link href="https://site-assets.fontawesome.com/releases/v6.5.0/css/all.css" rel="stylesheet" />
+    <!-- 나눔스퀘어 -->
+    <link href="https://cdn.jsdelivr.net/npm/font-nanum@1.0.0/nanumsquare.css" rel="stylesheet" />
+
+    <!-- slick.css => css import 로 부르면 나오지 않음 -->
+    <!-- slic -->
+    <link href="./css/slick.css" rel="stylesheet" />
+    <link href="./css/slick-theme.css" rel="stylesheet" />
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/jquery.slicknav.js"></script>
+    <script src="./js/picMain.js"></script>
+    <!-- news room slick -->
+    <script src="./js/slick.1.9.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        // ====== wow.js
+        new WOW().init();
+
+        // ====== 나눔스퀘어
+        WebFont.load({
+            google: {
+                families: ['Nanum Square:regular,bold']
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <header>
+            <div class="headerBar">
+                <div class="innerHeader">
+                    <!-- logo -->
+                    <h1 class="logo">
+                        <a href="index.html">
+                            <img src="./images/logo.png">
+                        </a>
+                    </h1>
+                    <!-- navigation -->
+                    <nav class="nav">
+                        <div class="inner">
+                            <ul class="nav-list" id="menu">
+                                <li class="in_menu01">
+                                    <a href="index.html">Main</a>
+                                </li>
+                                <li class="in_menu02">
+                                    <a href="sell.html">Sell</a>
+                                </li>
+                                <li class="in_menu03">
+                                    <a href="buy.html">Buy</a>
+                                </li>
+                                <li class="in_menu04">
+                                    <a href="login.html">My Account</a>
+                                    <ul class="submenu">
+                                        <li><a href="login.html">login</a></li>
+                                        <li><a href="register.html">회원가입</a></li>
+                                    </ul>
+                                </li>
+                                <li class="in_menu05">
+                                    <a href="support.html">Support</a>
+                                    <ul class="submenu">
+                                        <li><a href="faq.html">FAQ</a></li>
+                                        <li><a href="support.html">게시판</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- search button -->
+                    <ul class="searchLang">
+                        <li>
+                            <a href="#">
+                                <i class="fa-regular fa-magnifying-glass"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html">KO</a>
+                        </li>
+                        <li>
+                            <a href="#">EN</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- pc sub menu bg -->
+                <div class="smenu_bar"></div>
+            </div>
+        </header>
+        <h1>회원 시스템</h1>
+
+        <div id="authForm">
+            <input type="text" id="username" placeholder="사용자 이름 입력">
+            <input type="password" id="password" placeholder="비밀번호 입력">
+        </div>
+
+        <div id="buttons">
+            <button id="signupBtn">회원가입</button>
+            <button id="loginBtn">로그인</button>
+            <button id="logoutBtn" style="display: none;">로그아웃</button>
+        </div>
+
+        <p id="statusMessage"></p>
+    </div>
+    <script src="./js/script.js" defer></script>
+    <footer style="width: 100%;">
+        <div class="footer-container">
+            <div class="footer-left">
+                <h4>사이트 맵</h4>
+                <ul>
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="buy.html">상품 목록</a></li>
+                    <li><a href="support.html">고객센터</a></li>
+                </ul>
+            </div>
+            <div class="footer-center">
+                <h4>중고거래 플랫폼</h4>
+                <p>© 2024 중고거래 플랫폼. All rights reserved.</p>
+                <p>문의: support@secondhand.com | 전화: 010-1234-5678</p>
+            </div>
+            <div class="footer-right">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><img alt="Instagram" src="images/insta.svg" /></a>
+                    <a href="#"><img alt="Twitter" src="images/twitter.svg" /></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>
+</body>
+
+</html>

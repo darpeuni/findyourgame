@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title> 중고거래 </title>
+    <!-- rel="preconnect" - html에게 특정 도메인에 연결하라는 HTML태그임 -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <!-- crossorigin : 스크립트를 익명으로 가져옴 
+        인증정보 전송하지 못하도록 차단하는 역할을 함  
+        보안상의 이유로 들어감      link, script, img, video, audio  -->
+    <!-- 페비콘 -->
+    <link href="./images/favicon.png" rel="shoutcut icon" />
+    <!-- rel="stylesheet":css 형식임을 나타냄 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter&amp;display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&amp;family=Titillium+Web:wght@200;300;400;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet" />
+    <!-- font-awesome 공식사이트 - https://fontawesome.com/ -->
+    <!-- rel="stylesheet":css 형식임을 나타냄 -->
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&amp;display=swap" rel="stylesheet" />
+    <link href="https://site-assets.fontawesome.com/releases/v6.5.0/css/all.css" rel="stylesheet" />
+    <!-- 나눔스퀘어 -->
+    <link href="https://cdn.jsdelivr.net/npm/font-nanum@1.0.0/nanumsquare.css" rel="stylesheet" />
+    <link href="./css/sell.css" rel="stylesheet" />
+    <!-- slick.css => css import 로 부르면 나오지 않음 -->
+    <!-- slic -->
+    <link href="./css/slick.css" rel="stylesheet" />
+    <link href="./css/slick-theme.css" rel="stylesheet" />
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/jquery.slicknav.js"></script>
+    <script src="./js/picMain.js"></script>
+    <!-- news room slick -->
+    <script src="./js/slick.1.9.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        // ====== wow.js
+        new WOW().init();
+
+        // ====== 나눔스퀘어
+        WebFont.load({
+            google: {
+                families: ['Nanum Square:regular,bold']
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <!-- =================================
+                header 
+            ====================================-->
+        <header>
+            <div class="headerBar">
+                <div class="innerHeader">
+                    <!-- logo -->
+                    <h1 class="logo">
+                        <a href="index.html">
+                            <img src="./images/logo.png">
+                        </a>
+                    </h1>
+                    <!-- navigation -->
+                    <nav class="nav">
+                        <div class="inner">
+                            <ul class="nav-list" id="menu">
+                                <li class="in_menu01">
+                                    <a href="index.html">Main</a>
+                                </li>
+                                <li class="in_menu02">
+                                    <a href="sell.html">Sell</a>
+                                </li>
+                                <li class="in_menu03">
+                                    <a href="buy.html">Buy</a>
+                                </li>
+                                <li class="in_menu04">
+                                    <a href="login.html">My Account</a>
+                                    <ul class="submenu">
+                                        <li><a href="login.html">login</a></li>
+                                        <li><a href="register.html">회원가입</a></li>
+                                    </ul>
+                                </li>
+                                <li class="in_menu05">
+                                    <a href="support.html">Support</a>
+                                    <ul class="submenu">
+                                        <li><a href="faq.html">FAQ</a></li>
+                                        <li><a href="support.html">게시판</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- search button -->
+                    <ul class="searchLang">
+                        <li>
+                            <a href="#">
+                                <i class="fa-regular fa-magnifying-glass"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html">KO</a>
+                        </li>
+                        <li>
+                            <a href="#">EN</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- pc sub menu bg -->
+                <div class="smenu_bar"></div>
+            </div>
+        </header>
+        <!-- =================================
+                main - 전체 콘텐츠 영역 
+            ====================================-->
+        <!-- main>section.products>h2{products} -->
+        <main>
+            <section class="sell-form">
+                <h2>상품 등록</h2>
+                <form action="#" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="seller-name">판매자 이름</label>
+                        <input type="text" id="seller-name" name="seller-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">카테고리</label>
+                        <select id="category" name="category" required>
+                            <option value="">카테고리를 선택하세요</option>
+                            <option value="비디오게임기">비디오 게임기</option>
+                            <option value="PC게임콘솔">PC 게임콘솔</option>
+                            <option value="게임팩">게임 팩</option>
+                            <option value="PC 주변기기">PC 주변기기</option>
+                            <option value="기타">기타</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="item-name">상품명</label>
+                        <input type="text" id="item-name" name="item-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">가격</label>
+                        <input type="number" id="price" name="price" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">상품 설명</label>
+                        <textarea id="description" name="description" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="item-image">상품 이미지</label>
+                        <input type="file" id="item-image" name="item-image" accept="image/*">
+                    </div>
+                    <button type="submit">등록하기</button>
+                </form>
+            </section>
+
+        </main>
+        <footer>
+            <div class="footer-container">
+                <!-- Left Section -->
+                <div class="footer-left">
+                    <h4>사이트 맵</h4>
+                    <ul>
+                        <li><a href="index.html">홈</a></li>
+                        <li><a href="buy.html">상품 목록</a></li>
+                        <li><a href="support.html">고객센터</a></li>
+                    </ul>
+                </div>
+                <!-- Center Section -->
+                <div class="footer-center">
+                    <h4>중고거래 플랫폼</h4>
+                    <p>© 2024 중고거래 플랫폼. All rights reserved.</p>
+                    <p>문의: support@secondhand.com | 전화: 010-1234-5678</p>
+                </div>
+                <!-- Right Section -->
+                <div class="footer-right">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><img alt="Instagram" src="images/insta.svg" /></a>
+                        <a href="#"><img alt="Twitter" src="images/twitter.svg" /></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const form = document.querySelector("form");
+        
+                form.addEventListener("submit", function (event) {
+                    event.preventDefault();
+        
+                    const sellerName = document.getElementById("seller-name").value;
+                    const itemName = document.getElementById("item-name").value;
+                    const price = document.getElementById("price").value;
+                    const description = document.getElementById("description").value;
+                    const category = document.getElementById("category").value;
+                    const imageInput = document.getElementById("item-image");
+        
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        const newItem = {
+                            seller: sellerName,
+                            name: itemName,
+                            price: price,
+                            description: description,
+                            category: category,
+                            image: e.target.result  // 이미지의 Base64 데이터
+                        };
+        
+                        const items = JSON.parse(localStorage.getItem("items")) || [];
+                        items.push(newItem);
+                        localStorage.setItem("items", JSON.stringify(items));
+        
+                        alert("상품이 등록되었습니다!");
+                        form.reset();
+                    };
+        
+                    if (imageInput.files[0]) {
+                        reader.readAsDataURL(imageInput.files[0]);
+                    } else {
+                        alert("이미지를 선택해주세요.");
+                    }
+                });
+            });
+        </script>
+    </div>
+</body>
+
+
+</html>

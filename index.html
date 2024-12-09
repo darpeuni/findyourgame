@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title> 중고거래 </title>
+    <!-- rel="preconnect" - html에게 특정 도메인에 연결하라는 HTML태그임 -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <!-- crossorigin : 스크립트를 익명으로 가져옴 
+        인증정보 전송하지 못하도록 차단하는 역할을 함  
+        보안상의 이유로 들어감      link, script, img, video, audio  -->
+    <!-- 페비콘 -->
+    <link href="./images/favicon.png" rel="shoutcut icon" />
+    <!-- rel="stylesheet":css 형식임을 나타냄 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter&amp;display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&amp;family=Titillium+Web:wght@200;300;400;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet" />
+    <!-- font-awesome 공식사이트 - https://fontawesome.com/ -->
+    <!-- rel="stylesheet":css 형식임을 나타냄 -->
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&amp;display=swap" rel="stylesheet" />
+    <link href="https://site-assets.fontawesome.com/releases/v6.5.0/css/all.css" rel="stylesheet" />
+    <!-- 나눔스퀘어 -->
+    <link href="https://cdn.jsdelivr.net/npm/font-nanum@1.0.0/nanumsquare.css" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <!-- slick.css => css import 로 부르면 나오지 않음 -->
+    <!-- slic -->
+    <link href="./css/slick.css" rel="stylesheet" />
+    <link href="./css/slick-theme.css" rel="stylesheet" />
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/jquery.slicknav.js"></script>
+    <script src="./js/picMain.js"></script>
+    <!-- news room slick -->
+    <script src="./js/slick.1.9.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        // ====== wow.js
+        new WOW().init();
+
+        // ====== 나눔스퀘어
+        WebFont.load({
+            google: {
+                families: ['Nanum Square:regular,bold']
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <!-- #wrap>header>.innerHeader -->
+    <div id="wrap">
+        <!-- =================================
+                header 
+            ====================================-->
+        <header>
+            <div class="headerBar">
+                <div class="innerHeader">
+                    <!-- logo -->
+                    <h1 class="logo">
+                        <a href="index.html">
+                            <img src="./images/logo.png">
+                        </a>
+                    </h1>
+                    <!-- navigation -->
+                    <nav class="nav">
+                        <div class="inner">
+                            <ul class="nav-list" id="menu">
+                                <li class="in_menu01">
+                                    <a href="index.html">Main</a>
+                                </li>
+                                <li class="in_menu02">
+                                    <a href="sell.html">Sell</a>
+                                </li>
+                                <li class="in_menu03">
+                                    <a href="buy.html">Buy</a>
+                                </li>
+                                <li class="in_menu04">
+                                    <a href="login.html">My Account</a>
+                                    <ul class="submenu">
+                                        <li><a href="login.html">login</a></li>
+                                        <li><a href="register.html">회원가입</a></li>
+                                    </ul>
+                                </li>
+                                <li class="in_menu05">
+                                    <a href="support.html">Support</a>
+                                    <ul class="submenu">
+                                        <li><a href="faq.html">FAQ</a></li>
+                                        <li><a href="support.html">게시판</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- search button -->
+                    <ul class="searchLang">
+                        <li>
+                            <a href="#">
+                                <i class="fa-regular fa-magnifying-glass"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html">KO</a>
+                        </li>
+                        <li>
+                            <a href="#">EN</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- pc sub menu bg -->
+                <div class="smenu_bar"></div>
+            </div>
+        </header>
+        <!-- =================================
+                main - 전체 콘텐츠 영역 
+            ====================================-->
+        <!-- main>section.products>h2{products} -->
+        <main>
+            <!-- 메인슬라이드 -->
+            <section class="main_visual">
+                <h2 class="blind">main_visual</h2>
+                <!-- .swiper.mySwiper -->
+                <!-- 슬라이드, 인디케이터, 이전다음버튼  -->
+                <div class="swiper mySwiper">
+                    <!-- 스와이퍼 슬라이드 -->
+                    <!-- .swiper-wrapper -->
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <!-- p.sm+p.bigText -->
+                            <p class="sm wow animate__flipOutY">간편한 중고거래 </p>
+                            <p class="bigText wow animate__flipOutY">
+                                빠르고 믿을 수 있게</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <p class="sm">주변의 인기 상품 </p>
+                            <p class="bigText"> 지금 바로 확인하세요.
+                            </p>
+                        </div>
+                        <div class="swiper-slide">
+                            <p class="sm">쉽게 판매하기</p>
+                            <p class="bigText">한 번에 끝내는 거래</p>
+                        </div>
+                    </div>
+                    <!-- 인디케이터 -->
+                    <div class="swiper-pagination slides-pagenation"></div>
+                    <!-- 이전,다음버튼 -->
+                    <!-- .swiper-button-prev -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </section>
+            <section class="products">
+                <h2>Products <span></span></h2>
+                <p>내 주변의 숨겨진 보물들</p>
+                <!-- 아코디언 -->
+                <!-- .pd_list>.option.active -->
+                <div class="pd_list showBox">
+                    <!-- 1 -->
+                    <div class="option active" style="--optionBackground:url(../images/product01_active.jpg)no-repeat;">
+                        <div class="img"></div>
+                        <p>VGC</p>
+                        <span>Video Game console</span>
+                        <div class="bg"></div>
+                    </div>
+                    <!-- 2 -->
+                    <div class="option" style="--optionBackground:url(../images/product02_active.jpg)no-repeat;">
+                        <div class="img"></div>
+                        <p>PGC</p>
+                        <span>PC Game console</span>
+                        <div class="bg"></div>
+                    </div>
+                    <!-- 3 -->
+                    <div class="option" style="--optionBackground:url(../images/product03_active.jpg)no-repeat;">
+                        <div class="img"></div>
+                        <p>GP</p>
+                        <span>Game Pack</span>
+                        <div class="bg"></div>
+                    </div>
+                    <!-- 4 -->
+                    <div class="option" style="--optionBackground:url(../images/product04_active.jpg)no-repeat;">
+                        <div class="img"></div>
+                        <p>PP</p>
+                        <span>Pc Peripherals</span>
+                        <div class="bg"></div>
+                    </div>
+                </div>
+            </section>
+            <section class="career">
+                <h2 class="blind">career</h2>
+                <!-- redBox -->
+                <!-- .redBox>.tBox+.bBox -->
+                <div class="careerInner showBox">
+                    <!-- 이전, 다음버튼 -->
+                    <div class="prevNext">
+                        <div id="prevBtn"><i class="fa-regular fa-arrow-left-long"></i></div>
+                        <div id="nextBtn"><i class="fa-regular fa-arrow-right-long"></i></div>
+                    </div>
+                    <div class="redBox">
+                        <!-- 상단 흰색-뉴스 -->
+                        <div class="tBox">
+                            <!-- .news_slide>.items>.leftText+.rightBtn -->
+                            <div class="news_slide">
+                                <!-- 1 -->
+                                <div class="items">
+                                    <div class="leftText">
+                                        <p class="tText">
+                                            <span class="skcp">가전제품 특가</span>
+                                            <span class="date">~2024-01-12</span>
+                                        </p>
+                                        <p class="bText">최대 50% 할인! 지금 바로 확인하세요.</p>
+                                    </div>
+                                    <div class="rightBtn">
+                                        <a href="#"> D - 3 </a>
+                                    </div>
+                                </div>
+                                <!-- 2 -->
+                                <div class="items">
+                                    <div class="leftText">
+                                        <p class="tText">
+                                            <span class="skcp">가구 대방출</span>
+                                            <span class="date">~2024-01-16</span>
+                                        </p>
+                                        <p class="bText">한정 수량! 합리적인 가격에 만나요.</p>
+                                    </div>
+                                    <div class="rightBtn">
+                                        <a href="#"> D - 7 </a>
+                                    </div>
+                                </div>
+                                <!-- 3 -->
+                                <div class="items">
+                                    <div class="leftText">
+                                        <p class="tText">
+                                            <span class="skcp">의류 세일</span>
+                                            <span class="date">~2024-01-12</span>
+                                        </p>
+                                        <p class="bText">스타일리시한 옷을 중고로 만나보세요.</p>
+                                    </div>
+                                    <div class="rightBtn">
+                                        <a href="#"> D - 3 </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 하단 빨강-거래사이트로 넘어가기 -->
+                        <div class="bBox">
+                            <!-- text  -->
+                            <!-- p.top+span -->
+                            <p class="top">
+                                간편 안전 거래!
+                            </p>
+                            <span class="text">
+                                여기서 시작하세요.
+                            </span>
+                            <!-- more btn  -->
+                            <!-- .moreBox>.btn>a>span{More} -->
+                            <div class="moreBox">
+                                <div class="btn">
+                                    <a href="support.html">
+                                        <span>More</span>
+                                        <i class="fal fa-chevron-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 이전, 다음버튼 -->
+                    <div class="prevNext2">
+                        <div id="prevBtn"><i class="fa-regular fa-arrow-left-long"></i></div>
+                        <div id="nextBtn"><i class="fa-regular fa-arrow-right-long"></i></div>
+                    </div>
+                    <div class="redBox2">
+                        <!-- 상단 흰색-뉴스 -->
+                        <div class="tBox">
+                            <!-- .news_slide>.items>.leftText+.rightBtn -->
+                            <div class="news_slide">
+                                <!-- 1 -->
+                                <div class="items">
+                                    <div class="leftText">
+                                        <p class="tText">
+                                            <span class="skcp">가전제품 특가</span>
+                                            <span class="date">~2024-01-12</span>
+                                        </p>
+                                        <p class="bText">최대 50% 할인! 지금 바로 확인하세요.</p>
+                                    </div>
+                                    <div class="rightBtn">
+                                        <a href="#"> D - 3 </a>
+                                    </div>
+                                </div>
+                                <!-- 2 -->
+                                <div class="items">
+                                    <div class="leftText">
+                                        <p class="tText">
+                                            <span class="skcp">가구 대방출</span>
+                                            <span class="date">~2024-01-16</span>
+                                        </p>
+                                        <p class="bText">한정 수량! 합리적인 가격에 만나요.</p>
+                                    </div>
+                                    <div class="rightBtn">
+                                        <a href="#"> D - 7 </a>
+                                    </div>
+                                </div>
+                                <!-- 3 -->
+                                <div class="items">
+                                    <div class="leftText">
+                                        <p class="tText">
+                                            <span class="skcp">의류 세일</span>
+                                            <span class="date">~2024-01-12</span>
+                                        </p>
+                                        <p class="bText">스타일리시한 옷을 중고로 만나보세요.</p>
+                                    </div>
+                                    <div class="rightBtn">
+                                        <a href="#"> D - 3 </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 하단 빨강-거래사이트로 넘어가기 -->
+                        <div class="bBox">
+                            <!-- text  -->
+                            <!-- p.top+span -->
+                            <p class="top">
+                                입금 전에 다시 확인!
+                            </p>
+                            <span class="text">
+                                안전 거래로 사기 예방.
+                            </span>
+                            <!-- more btn  -->
+                            <!-- .moreBox>.btn>a>span{More} -->
+                            <div class="moreBox">
+                                <div class="btn">
+                                    <a href="support.html">
+                                        <span>More</span>
+                                        <i class="fal fa-chevron-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 하단화살표 -->
+            <!-- a.btnTop>img -->
+            <a class="btnTop" href="#"><img alt="최상단 이동 화살표" src="./images/top-arrow.svg" /></a>
+        </main>
+        <!-- =================================
+                footer 
+            ====================================-->
+        <!-- footer>.innerFooter>ul.bmenu>li*6>a -->
+
+        <footer>
+            <div class="footer-container">
+                <!-- Left Section -->
+                <div class="footer-left">
+                    <h4>사이트 맵</h4>
+                    <ul>
+                        <li><a href="index.html">홈</a></li>
+                        <li><a href="buy.html">상품 목록</a></li>
+                        <li><a href="support.html">고객센터</a></li>
+                    </ul>
+                </div>
+                <!-- Center Section -->
+                <div class="footer-center">
+                    <h4>중고거래 플랫폼</h4>
+                    <p>© 2024 중고거래 플랫폼. All rights reserved.</p>
+                    <p>문의: support@secondhand.com | 전화: 010-1234-5678</p>
+                </div>
+                <!-- Right Section -->
+                <div class="footer-right">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><img alt="Instagram" src="images/insta.svg" /></a>
+                        <a href="#"><img alt="Twitter" src="images/twitter.svg" /></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Swiper 라이브러리 스크립트를 불러오기 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        // swiper slide plugin
+        // .mySwiper 에 슬라이드 적용
+        var swiper = new Swiper(".mySwiper", {
+            // 이전 다음버튼 사용하여 슬라이드 전환
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            // 인디케이터
+            pagination: {
+                el: ".swiper-pagination", // 표시할 요소 선택자
+                clickable: true, // 버튼 클릭시 슬라이드 이동하도록 설정
+            },
+        });
+
+
+
+
+        // =============등장액션: .showBox
+        const showBox = document.querySelectorAll(".showBox");
+        // 화면높이값 2/3 구하기
+        const screenH = window.innerHeight / 3 * 2;
+        // 현재 요소의 위치 (화면의 상단으로부터의 거리)를 반환하는 함수
+        const retVal = ele => ele.getBoundingClientRect().top;
+        //   등장 액션을 처리하는 함수
+        const showTit = x => {
+            // 현재 요소의 위치 (화면의 상단으로부터의 거리)를 가져옴
+            let xval = retVal(x);
+            // 만약 요소가 화면에 나타나는 중이라면
+            if (xval < screenH && xval > 0) {
+                // 요소가 화면에 나타날 때 opacity를 1로 변경하여 나타냄
+                x.classList.add("on");
+            }
+        };
+        window.addEventListener("scroll", () => {
+            // 스크롤 등장요소 개수만큼 for문 돌리기
+            for (let x of showBox) showTit(x);
+        });
+    </script>
+    <script>
+        function toggleForm() {
+            const form = document.getElementById('newsRoomForm');
+            if (form.style.display === 'none') {
+                form.style.display = 'block';
+            } else {
+                form.style.display = 'none';
+            }
+        }
+
+        let postCount = 3; // Initial count for posts
+
+        function addPostWithImage() {
+            const title = document.getElementById('title').value;
+            const author = document.getElementById('author').value;
+            const content = document.getElementById('content').value;
+            const imageInput = document.getElementById('image');
+            let imageHTML = '-';
+
+            // Check if an image is uploaded
+            if (imageInput.files && imageInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    imageHTML = `<img src="${e.target.result}" alt="첨부 이미지" style="max-width: 100px; max-height: 100px;">`;
+
+                    // Add the post after image is loaded
+                    appendPost(title, author, content, imageHTML);
+                };
+                reader.readAsDataURL(imageInput.files[0]);
+            } else {
+                appendPost(title, author, content, imageHTML);
+            }
+        }
+
+        function appendPost(title, author, content, imageHTML) {
+            if (title && author && content) {
+                postCount++;
+                const date = new Date().toISOString().split('T')[0]; // Current date
+                const table = document.getElementById('newsRoomTable');
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+            <td>${postCount}</td>
+            <td>${imageHTML}</td>
+            <td><a href="#">${title}</a></td>
+            <td>${author}</td>
+            <td>${date}</td>
+            <td>0</td>
+        `;
+
+                table.appendChild(row);
+
+                // Clear form inputs
+                document.getElementById('newsRoomForm').reset();
+                document.getElementById('newsRoomForm').style.display = 'none';
+            } else {
+                alert('모든 필드를 채워주세요.');
+            }
+        }
+
+    </script>
+</body>
+
+</html>

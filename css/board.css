@@ -1,0 +1,218 @@
+@charset "UTF-8"; @import url('./animate.min.css'); /* reset - #E0002B */
+* { margin: 0; padding: 0; } 
+
+body { background-color: #ddd; } 
+
+ul,
+li { margin: 0; padding: 0; list-style: none; } 
+
+a { text-decoration: none; } 
+
+.blind { font-size: 0; width: 0; position: absolute; top: -99999999999px; text-indent: -999999999999999999999999px; } 
+
+img:hover { opacity: .7; } 
+
+#wrap { width: 100%; min-width: 1460px; } 
+
+/* =====================
+ header
+=======================*/
+#wrap header { min-width: 1460px; width: 100%; height: 110px; /* border-bottom: 1px solid #999; */
+ box-sizing: border-box; position: fixed; z-index: 999; top: 0; left: 0; transition: background-color 0.3s,
+ height 0.3s,
+ color 0.3s,
+ opacity 0.3s; } 
+
+#wrap header .innerHeader { /* min-width: 1460px; */
+ width: 95%; height: 110px; display: flex; justify-content: space-between; margin: 0 auto; /* border:1px solid red; */ } 
+
+/* logo */
+#wrap header .innerHeader h1.logo a img { max-width: 150px; /* 로고 최대 너비 설정 */
+ height: auto; /* 비율 유지 */ } 
+
+/* pc menu */
+#wrap header .innerHeader .nav { width: 850px; height: 110px; /* border:1px solid red; */
+ position: relative; /* line-height: 110px; */
+ z-index: 9; font-family: 'Exo 2', sans-serif; font-weight: 500; } 
+
+#wrap header .innerHeader .nav ul.nav-list { display: flex; width: 100%; /* justify-content: space-between; */
+ text-align: center; } 
+
+
+/* width: auto - 내부 콘텐츠의 크기에 따른 동적 적용 */
+/* 대메뉴 - 1Depth */
+#wrap header .innerHeader .nav ul.nav-list>li { width: auto; /* display: inline-block; */
+ margin-top: 45px; } 
+
+/* 1deps - 대메뉴 */
+#wrap header .innerHeader .nav ul.nav-list>li>a { font-size: 20px; color: #fff; /* line-height: 107px; */
+ height: 107px; transition: color 0.3s ease-in-out; /* ease-in-out : 시작과 끝은 느리게, 중간은 빠르게 */
+ position: relative; z-index: 9999; display: block; padding: 0 40px 0 40px; } 
+
+/* 대메뉴 라인 애니메이션 */
+#wrap header .innerHeader .nav ul.nav-list>li>a::before { content: ""; position: absolute; bottom: 42px; left: 50%; transform: translateX(-50%); width: 0; height: 3px; background-color: #E0002B; transition: 0.3s; } 
+
+#wrap header .innerHeader .nav ul.nav-list>li:hover a::before { width: 100%; } 
+/* 
+#wrap header .innerHeader .nav ul.nav-list>li>a:hover,
+#wrap header .innerHeader .nav ul.nav-list>li>a:focus { color: #E0002B; } */
+
+#wrap header .headerBar { width: 100%; position: relative; } 
+
+/* submenu - 2Deps */
+
+/* 서브메뉴 흰색배경 */
+.submenu { display: none; /* 가려줌 */
+ /* min-height: 200px; padding: 32px 0 15px 0; box-sizing: border-box; */ } 
+
+.submenu>li { margin-top: -3px; } 
+
+.submenu>li>a { color: #000; letter-spacing: -1px; font-family: 'Nanum Gothic'; padding: 6px 0 7px 0; /* 수정 */
+ display: block; } 
+
+.submenu>li>a:hover { text-decoration: underline; } 
+
+.smenu_bar { display: none; /* 가려줌 */
+ width: 100%; position: absolute; top: 110px; /* border-top: 1px solid #ddd; */
+ min-height: 220px; z-index: 1; background-color: #fff; box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1); } 
+
+
+
+/* search, lang */
+#wrap header .innerHeader ul.searchLang { display: flex; /* gap:20px; */
+ justify-content: space-between; width: 110px; font-family: 'Titillium Web', sans-serif; font-size: 20px; margin-top: 40px; } 
+
+/* 검색버튼 */
+#wrap header .innerHeader ul.searchLang li:nth-child(1) a i { width: 33px; margin-right: -5px; color: #000000; } 
+
+
+
+#wrap header .innerHeader ul.searchLang li:nth-child(2) a { color: #E0002B; } 
+
+#wrap header .innerHeader ul.searchLang li:nth-child(3) a { color: #fff; } 
+
+
+/* Mobile toggle PC에서 가려줌 */
+.searchToggle { display: none; } 
+
+
+body { 
+    background-color: #92bdff;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+ margin: 0; 
+ padding: 0; 
+ color: #333; 
+ } 
+
+.container { 
+ margin: 200px auto 0 auto; 
+ width: 90%; 
+ max-width: 800px; 
+ background: #fff; 
+ padding: 30px; 
+ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+ border-radius: 10px; 
+ font-size: 20px;
+ } 
+
+h1, h2 { 
+ text-align: center; 
+ color: #444; 
+ } 
+
+.form-group { 
+ margin-bottom: 20px; 
+ } 
+
+.form-group label { 
+ display: block; 
+ font-weight: bold; 
+ margin-bottom: 8px; 
+ } 
+
+.form-group input, .form-group textarea { 
+ width: 100%; 
+ padding: 12px; 
+ border: 1px solid #ccc; 
+ border-radius: 5px; 
+ font-size: 14px; 
+ box-sizing: border-box; 
+ } 
+
+button { 
+ background-color: #007bff; 
+ color: #fff; 
+ padding: 12px 20px; 
+ border: none; 
+ border-radius: 5px; 
+ cursor: pointer; 
+ font-size: 16px; 
+ width: 100%; 
+ } 
+
+button:hover { 
+ background-color: #0056b3; 
+ } 
+
+.notice { 
+ background: #f1f1f1; 
+ padding: 20px; 
+ border-radius: 8px; 
+ margin-top: 20px; 
+ position: relative; 
+ border-left: 5px solid #007bff; 
+ } 
+
+.hidden { 
+ display: none; 
+ } 
+
+.admin-login { 
+ text-align: center; 
+ margin-bottom: 20px; 
+ font-size: 20px;
+ } 
+
+.admin-login input { 
+ width: calc(100% - 24px); 
+ margin-bottom: 10px; 
+ } 
+
+.notice h3 { 
+ margin: 0 0 10px; 
+ font-size: 18px; 
+ } 
+
+.notice p { 
+ margin: 0; 
+ line-height: 1.6; 
+ } 
+
+
+ /* =====================
+ footer 
+=======================*/
+/* Footer Styling */
+footer { background-color: #333; color: #fff; padding: 20px 0; text-align: center;margin-top: 50px; } 
+/* Footer Layout Styling */
+.footer-container { display: flex; justify-content: space-between; align-items: flex-start; max-width: 1200px; margin: 0 auto; padding: 30px 20px; } 
+
+.footer-left, .footer-center, .footer-right { flex: 1; min-width: 250px; text-align: center; } 
+
+.footer-left h4, .footer-center h4, .footer-right h4 { font-size: 1.2em; margin-bottom: 10px; color: #f1c40f; } 
+
+.footer-left ul { list-style: none; padding: 0; } 
+
+.footer-left ul li { margin: 5px 0; } 
+
+.footer-left ul li a { color: #ecf0f1; text-decoration: none; font-size: 0.9em; } 
+
+.footer-left ul li a:hover { text-decoration: underline; } 
+
+.footer-center p { margin: 5px 0; font-size: 0.9em; line-height: 1.5; } 
+
+.footer-right .social-links { display: flex; justify-content: center; gap: 15px; } 
+
+.footer-right .social-links img { width: 30px; height: 30px; filter: brightness(0) invert(1); transition: transform 0.3s ease, filter 0.3s ease; } 
+
+.footer-right .social-links img:hover { transform: scale(1.1); filter: brightness(0.8) invert(1); } 

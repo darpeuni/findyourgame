@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title> 중고거래 </title>
+    <!-- rel="preconnect" - html에게 특정 도메인에 연결하라는 HTML태그임 -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <!-- crossorigin : 스크립트를 익명으로 가져옴 
+        인증정보 전송하지 못하도록 차단하는 역할을 함  
+        보안상의 이유로 들어감      link, script, img, video, audio  -->
+    <!-- 페비콘 -->
+    <link href="./images/favicon.png" rel="shoutcut icon" />
+    <!-- rel="stylesheet":css 형식임을 나타냄 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter&amp;display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&amp;family=Titillium+Web:wght@200;300;400;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet" />
+    <!-- font-awesome 공식사이트 - https://fontawesome.com/ -->
+    <!-- rel="stylesheet":css 형식임을 나타냄 -->
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&amp;display=swap" rel="stylesheet" />
+    <link href="https://site-assets.fontawesome.com/releases/v6.5.0/css/all.css" rel="stylesheet" />
+    <!-- 나눔스퀘어 -->
+    <link href="https://cdn.jsdelivr.net/npm/font-nanum@1.0.0/nanumsquare.css" rel="stylesheet" />
+    <link href="./css/sell.css" rel="stylesheet" />
+    <!-- slick.css => css import 로 부르면 나오지 않음 -->
+    <!-- slic -->
+    <link href="./css/slick.css" rel="stylesheet" />
+    <link href="./css/slick-theme.css" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet">
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/jquery.slicknav.js"></script>
+    <script src="./js/picMain.js"></script>
+    <!-- news room slick -->
+    <script src="./js/slick.1.9.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        // ====== wow.js
+        new WOW().init();
+
+        // ====== 나눔스퀘어
+        WebFont.load({
+            google: {
+                families: ['Nanum Square:regular,bold']
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <!-- =================================
+                header 
+            ====================================-->
+        <header>
+            <div class="headerBar">
+                <div class="innerHeader">
+                    <!-- logo -->
+                    <h1 class="logo">
+                        <a href="index.html">
+                            <img src="./images/logo.png">
+                        </a>
+                    </h1>
+                    <!-- navigation -->
+                    <nav class="nav">
+                        <div class="inner">
+                            <ul class="nav-list" id="menu">
+                                <li class="in_menu01">
+                                    <a href="index.html">Main</a>
+                                </li>
+                                <li class="in_menu02">
+                                    <a href="sell.html">Sell</a>
+                                </li>
+                                <li class="in_menu03">
+                                    <a href="buy.html">Buy</a>
+                                </li>
+                                <li class="in_menu04">
+                                    <a href="login.html">My Account</a>
+                                    <ul class="submenu">
+                                        <li><a href="login.html">login</a></li>
+                                        <li><a href="register.html">회원가입</a></li>
+                                    </ul>
+                                </li>
+                                <li class="in_menu05">
+                                    <a href="support.html">Support</a>
+                                    <ul class="submenu">
+                                        <li><a href="faq.html">FAQ</a></li>
+                                        <li><a href="support.html">게시판</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- search button -->
+                    <ul class="searchLang">
+                        <li>
+                            <a href="#">
+                                <i class="fa-regular fa-magnifying-glass"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html">KO</a>
+                        </li>
+                        <li>
+                            <a href="#">EN</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- pc sub menu bg -->
+                <div class="smenu_bar"></div>
+            </div>
+        </header>
+        <!-- =================================
+                main - 전체 콘텐츠 영역 
+            ====================================-->
+        <!-- main>section.products>h2{products} -->
+        <main>
+            <main>
+                <section class="product-list" style="max-width: 1000px; margin: 150px auto 50px auto; padding: 20px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); border-radius: 10px; background-color: #fff;">
+                    <h2 style="text-align: center; margin-bottom: 20px;">등록된 상품 목록</h2>
+                    
+                    <!-- 카테고리 선택 버튼 -->
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <button class="filter-btn" data-category="전체">전체</button>
+                        <button class="filter-btn" data-category="비디오게임기">비디오 게임기</button>
+                        <button class="filter-btn" data-category="PC게임콘솔">PC 게임콘솔</button>
+                        <button class="filter-btn" data-category="게임팩">게임 팩</button>
+                        <button class="filter-btn" data-category="PC 주변기기">PC 주변기기</button>
+                        <button class="filter-btn" data-category="기타">기타</button>
+                    </div>
+            
+                    <table border="1" style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr>
+                                <th style="padding: 10px; background-color: #f4f4f4;">카테고리</th>
+                                <th style="padding: 10px; background-color: #f4f4f4;">이미지</th>
+                                <th style="padding: 10px; background-color: #f4f4f4;">상품명</th>
+                                <th style="padding: 10px; background-color: #f4f4f4;">상품 설명</th>
+                                <th style="padding: 10px; background-color: #f4f4f4;">판매자</th>
+                                <th style="padding: 10px; background-color: #f4f4f4;">가격</th>
+                            </tr>
+                        </thead>
+                        <tbody id="product-table-body">
+                            <!-- 상품 데이터가 여기에 추가됩니다 -->
+                        </tbody>
+                    </table>
+                </section>
+            </main>
+            
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const productTableBody = document.getElementById("product-table-body");
+                    const items = JSON.parse(localStorage.getItem("items")) || [];
+                    const filterButtons = document.querySelectorAll(".filter-btn");
+            
+                    // 상품 목록을 렌더링하는 함수
+                    function renderItems(category = "전체") {
+                        productTableBody.innerHTML = ""; // 기존 목록 초기화
+            
+                        const filteredItems = category === "전체" ? items : items.filter(item => item.category === category);
+            
+                        if (filteredItems.length === 0) {
+                            productTableBody.innerHTML = "<tr><td colspan='6' style='text-align: center;'>등록된 상품이 없습니다.</td></tr>";
+                        } else {
+                            filteredItems.forEach(item => {
+                                const row = document.createElement("tr");
+            
+                                row.innerHTML = `
+                                    <td style="padding: 10px; text-align: center;">${item.category}</td>
+                                    <td style="padding: 10px; text-align: center;">
+                                        <img src="${item.image}" alt="${item.name}" style="width: 100px; height: auto; border: 1px solid #ddd; border-radius: 5px;">
+                                    </td>
+                                    <td style="padding: 10px; text-align: center;">${item.name}</td>
+                                    <td style="padding: 10px; text-align: center;">${item.description}</td>
+                                    <td style="padding: 10px; text-align: center;">${item.seller}</td>
+                                    <td style="padding: 10px; text-align: center;">${item.price}원</td>
+                                `;
+            
+                                productTableBody.appendChild(row);
+                            });
+                        }
+                    }
+            
+                    // 초기 전체 상품 목록 렌더링
+                    renderItems();
+            
+                    // 필터 버튼 클릭 이벤트
+                    filterButtons.forEach(button => {
+                        button.addEventListener("click", () => {
+                            const category = button.getAttribute("data-category");
+                            renderItems(category);
+                        });
+                    });
+                });
+            </script>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const productTableBody = document.getElementById("product-table-body");
+                    const items = JSON.parse(localStorage.getItem("items")) || [];
+            
+                    if (items.length === 0) {
+                        productTableBody.innerHTML = "<tr><td colspan='6' style='text-align: center;'>등록된 상품이 없습니다.</td></tr>";
+                    } else {
+                        items.forEach((item, index) => {
+                            const row = document.createElement("tr");
+            
+                            row.innerHTML = `
+                                <td style="padding: 10px; text-align: center;">${item.category}</td>
+                                <td style="padding: 10px; text-align: center;">
+                                    <a href="product-detail.html?index=${index}" target="_blank">
+                                        <img src="${item.image}" alt="${item.name}" style="width: 100px; height: auto; border: 1px solid #ddd; border-radius: 5px;">
+                                    </a>
+                                </td>
+                                <td style="padding: 10px; text-align: center;">
+                                    <a href="product-detail.html?index=${index}" target="_blank">${item.name}</a>
+                                </td>
+                                <td style="padding: 10px; text-align: center;">${item.description}</td>
+                                <td style="padding: 10px; text-align: center;">${item.seller}</td>
+                                <td style="padding: 10px; text-align: center;">${item.price}원</td>
+                            `;
+            
+                            productTableBody.appendChild(row);
+                        });
+                    }
+                });
+            </script>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const productTableBody = document.getElementById("product-table-body");
+                    const items = JSON.parse(localStorage.getItem("items")) || [];
+            
+                    function renderItems() {
+                        productTableBody.innerHTML = ""; // 기존 목록 초기화
+            
+                        if (items.length === 0) {
+                            productTableBody.innerHTML = "<tr><td colspan='7' style='text-align: center;'>등록된 상품이 없습니다.</td></tr>";
+                        } else {
+                            items.forEach((item, index) => {
+                                const row = document.createElement("tr");
+            
+                                row.innerHTML = `
+                                    <td style="padding: 10px; text-align: center;">${item.category}</td>
+                                    <td style="padding: 10px; text-align: center;">
+                                        <a href="product-detail.html?index=${index}" target="_blank">
+                                            <img src="${item.image}" alt="${item.name}" style="width: 100px; height: auto; border: 1px solid #ddd; border-radius: 5px;">
+                                        </a>
+                                    </td>
+                                    <td style="padding: 10px; text-align: center;">
+                                        <a href="product-detail.html?index=${index}" target="_blank">${item.name}</a>
+                                    </td>
+                                    <td style="padding: 10px; text-align: center;">${item.description}</td>
+                                    <td style="padding: 10px; text-align: center;">${item.seller}</td>
+                                    <td style="padding: 10px; text-align: center;">${item.price}원</td>
+                                    <td style="padding: 10px; text-align: center;">
+                                        <button class="delete-btn" data-index="${index}" style="padding: 5px 10px; background-color: red; color: white; border: none; border-radius: 5px; cursor: pointer;">삭제</button>
+                                    </td>
+                                `;
+            
+                                productTableBody.appendChild(row);
+                            });
+                        }
+                    }
+            
+                    // 삭제 기능
+                    productTableBody.addEventListener("click", function (event) {
+                        if (event.target.classList.contains("delete-btn")) {
+                            const index = event.target.getAttribute("data-index");
+                            items.splice(index, 1); // 해당 인덱스의 상품 삭제
+                            localStorage.setItem("items", JSON.stringify(items)); // 변경된 목록을 localStorage에 저장
+                            renderItems(); // 화면 다시 렌더링
+                        }
+                    });
+            
+                    // 초기 목록 렌더링
+                    renderItems();
+                });
+            </script>
+            
+            
+            
+
+        </main>
+        <footer>
+            <div class="footer-container">
+                <!-- Left Section -->
+                <div class="footer-left">
+                    <h4>사이트 맵</h4>
+                    <ul>
+                        <li><a href="index.html">홈</a></li>
+                        <li><a href="buy.html">상품 목록</a></li>
+                        <li><a href="support.html">고객센터</a></li>
+                    </ul>
+                </div>
+                <!-- Center Section -->
+                <div class="footer-center">
+                    <h4>중고거래 플랫폼</h4>
+                    <p>© 2024 중고거래 플랫폼. All rights reserved.</p>
+                    <p>문의: support@secondhand.com | 전화: 010-1234-5678</p>
+                </div>
+                <!-- Right Section -->
+                <div class="footer-right">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><img alt="Instagram" src="images/insta.svg" /></a>
+                        <a href="#"><img alt="Twitter" src="images/twitter.svg" /></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // 로그인 상태 확인
+            if (!localStorage.getItem("loggedInUser")) {
+                alert("로그인이 필요합니다.");
+                window.location.href = "login.html"; // 로그인 페이지로 이동
+            }
+        });
+    </script>
+    
+    
+</body>
+
+
+</html>
